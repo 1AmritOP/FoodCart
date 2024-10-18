@@ -8,12 +8,12 @@ const Cart = () => {
   const cartlist = useSelector((state) => state.cart.value);
   const totalQty=cartlist.reduce((totalQty,item)=> totalQty+ item.qty,0);
   const totalPrice=cartlist.reduce((total,item)=> total+ item.qty * item.price ,0)
-  console.log(cartlist);
+  // console.log(cartlist);
 
   return (
     <>
       {active ? (
-        <div className="mainCart px-2 h-screen w-[28rem] bg-slate-900 fixed top-0 right-0 ">
+        <div className="mainCart px-2 h-screen flex flex-col max-sm:w-[20rem] w-[28rem] bg-slate-900 fixed top-0 right-0 overflow-y-auto">
           <button
             onClick={() => {
               setActive(!active);
@@ -41,12 +41,12 @@ const Cart = () => {
             </h1>
           )}
 
-          <div className=" h-28 w-full fixed bottom-0 ">
+          <div className=" h-28 w-full mt-4 ">
             <h1 className=" text-lg font-bold">Total Qty : {totalQty} </h1>
             <h1 className=" text-lg font-bold">Total Price : {totalPrice} </h1>
             <hr className=" -mx-2" />
             <Link to={"/success"} >
-              <button className="my-1 w-60 h-12 bg-green-400 mx-24 rounded-xl">
+              <button className="my-1 w-60 h-12 bg-green-400 mx-24 max-sm:mx-8 rounded-xl">
                 Check-Out
               </button>
             </Link>

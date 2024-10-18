@@ -16,7 +16,7 @@ const Success = () => {
                 loading ? <PacmanLoader color='#36D7B7' /> :
             <div className="text">
                 <h1 className=' text-center font-bold text-3xl text-green-400'>Order Successful!</h1>
-                <p className=' text-xl'>Your order have been Successful placed</p>
+                <p className=' text-center text-xl max-sm:text-sm'>Your order have been Successful placed</p>
             </div>
             }
         </div>
