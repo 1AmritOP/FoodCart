@@ -2,11 +2,21 @@
 
 import Card from "./Card";
 import FoodData from "../Data/FoodData";
+import { useSelector } from "react-redux";
 
 const CardWrapper = () => {
+  const searchData=useSelector((state)=> (state.cart.searchData))
   return (
     <div className=" min-h-[60vh] my-4 px-10 flex gap-4 flex-wrap justify-between max-sm:justify-center">
-      {FoodData.map((food) => {
+      {FoodData.filter((elem)=>{
+        if(searchData.length == 0){
+          return elem
+
+        }else{
+          return elem.name.toLowerCase().includes(searchData.toLowerCase())
+        }
+      })
+      .map((food) => {
         return (
           <Card
             key={food.id}

@@ -1,13 +1,17 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState={
-    value: []
+    value: [],
+    searchData: []
 }
 
 export const Cartslice=createSlice({
     name: "cart",
     initialState,
     reducers:{
+        foodSearch: (state,action)=>{
+            state.searchData=action.payload
+        },
         addToCart: (state,action)=>{
             const existingItem=state.value.find((item)=>item.id==action.payload.id)
             if (existingItem) {
@@ -29,6 +33,6 @@ export const Cartslice=createSlice({
     }
 })
 
-export const {addToCart,removeFromCart,increamentItem,decreamentItem} =Cartslice.actions
+export const {addToCart,removeFromCart,increamentItem,decreamentItem,foodSearch} =Cartslice.actions
 
 export default Cartslice.reducer

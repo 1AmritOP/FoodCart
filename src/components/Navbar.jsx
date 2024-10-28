@@ -1,6 +1,18 @@
 // import React from 'react'
 
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux"
+import { foodSearch } from "../features/Cartslice"
+
+
+
 const Navbar = () => {
+  const [inpSrch, setinpSrch] = useState("")
+  const dispatch=useDispatch()
+  useEffect(() => {
+    dispatch(foodSearch(inpSrch))
+  }, [inpSrch])
+  
   const date = new Date();
   return (
     <>
@@ -13,6 +25,10 @@ const Navbar = () => {
         <div className="right">
           <input
             type="text"
+            onChange={(e)=>{
+              setinpSrch(e.target.value)
+            }}
+            value={inpSrch}
             className=" text-green-500 px-4 py-2 rounded-xl outline-none"
             placeholder="search for food"
           />
