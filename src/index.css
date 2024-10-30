@@ -8,4 +8,17 @@ body{
 }
 .menu{
     border: 1px solid white;
+    padding: 4px 8px ;
+    margin: 4px 0px;
+    margin-right: 8px;
+    border-radius: 8px;
+    background-color: #94a3b8;
+}
+.activeMenu{
+    border: 1px solid white;
+    padding: 4px 8px ;
+    margin: 4px 0px;
+    margin-right: 8px;
+    border-radius: 8px;
+    background-color: rgb(74 222 128) ;
 }
